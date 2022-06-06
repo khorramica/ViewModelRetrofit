@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,9 +35,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
     @Override
     public void onBindViewHolder(@NonNull HeroViewHolder holder, int position) {
         holder.textViewHero.setText(heroList.get(position).getName());
-        Glide.with(context)
-                .load(heroList.get(position).getImageUrl())
-                .into(holder.imageViewHero);
+        Picasso.get().load(heroList.get(position).getImageUrl()).into(holder.imageViewHero);
     }
 
     @Override

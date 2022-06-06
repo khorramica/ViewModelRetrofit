@@ -3,7 +3,6 @@ package ir.khorrami.viewmodelretrofit;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewHero;
     HeroAdapter adapter;
-    List<Hero> heroList = new ArrayList<>();
+    List<Hero> heroList ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewHero.setLayoutManager(new LinearLayoutManager(this));
 
 
-        HeroesViewModel model = ViewModelProviders.of(this).get(HeroesViewModel.class);
+        HeroesViewModel model =new ViewModelProvider(this).get(HeroesViewModel.class);
         model.getHeros().observe(this, new Observer<List<Hero>>() {
             @Override
             public void onChanged(List<Hero> heroes) {
-                adapter = new HeroAdapter(MainActivity.this,heroList);
+                adapter = new HeroAdapter(MainActivity.this,heroes);
                 recyclerViewHero.setAdapter(adapter);
             }
         });

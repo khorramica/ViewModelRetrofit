@@ -13,7 +13,7 @@ public class Hero {
 
     private String publisher;
 
-    private String imageUrl;
+    private String imageurl;
 
     private String bio;
 
@@ -24,7 +24,7 @@ public class Hero {
         this.firstAppearance = firstAppearance;
         this.createDby = createDby;
         this.publisher = publisher;
-        this.imageUrl = imageUrl;
+        this.imageurl = imageUrl;
         this.bio = bio;
     }
 
@@ -77,11 +77,11 @@ public class Hero {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return imageurl;
     }
 
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.imageurl = imageUrl;
     }
 
     public String getBio() {
